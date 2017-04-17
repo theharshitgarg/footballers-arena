@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-8">
+			<h1>{{ footballer.name }}</h1>
+		</div>
+		<div class="col-md-4">
+			<h1><img clsas="img-responsive img-circle" src="{% static 'footballer-pics/'|add:footballer.name|add:'.png' %}" alt="{{ footballer.name }}"></h1>
+		</div>	
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-stripped">
+			    <thead>
+			      <tr>
+			        <th>S. No.</th>
+			        <th>Field</th>
+			        <th>Value</th>			        
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {% for data, value in serialized_player.items %}
+			      	<tr class="{% if forloop.counter0|divisibleby:2  %} success {% else %} danger {% endif %}">
+				        <td>{{ forloop.counter }}</td>
+				        <td>{{ data }}</td>
+				        <td>{{ footballer.data }} {{value}}</td>			        
+				    </tr>
+			      {% endfor %}			      
+			    </tbody>
+			</table>
+		</div>
+	</div>	
+	
+{% endblock %}			
