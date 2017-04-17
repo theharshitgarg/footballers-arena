@@ -512,7 +512,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "footballersarena.settings")
 django.setup()
 from footballers.models import FootballPlayer
 count = 0
-for value in values[1:2]:
+for value in values[2:]:
 	f = zip(headers, value)
 	g = dict(f)
 	player = FootballPlayer(**g)
