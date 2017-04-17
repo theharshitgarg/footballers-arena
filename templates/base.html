@@ -9,20 +9,18 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<style>
 			.left-nav {
-			    height: 100%; /* 100% Full-height */
-			    width: 0; /* 0 width - change this with JavaScript */
-			    position: fixed; /* Stay in place */
-			    z-index: 1; /* Stay on top */
-			    top: 0;
-			    left: 0;
-			    background-color: #111; /* Black*/
-			    overflow-x: hidden; /* Disable horizontal scroll */
-			    padding-top: 60px; /* Place content 60px from the top */
-			    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+			    height: 100%; 
+			    width: 0; 
+			    position: fixed;
+			    z-index: 1; 
+			    overflow-x: hidden;
+			    padding-top: 60px;
+			    transition: 0.5s;
 			    margin-top: 50px;
 			}
 		</style>
 		{% block header_js %}{% endblock %}
+		{% block css_sheets %}{% endblock %}
 	</head>
 	<body>		
 		<nav id="top-naivation" class="navbar navbar-inverse navbar-custom">
@@ -53,18 +51,16 @@
 	    	<div class="row">
 	    		<div class="col-md-2">
 	    			<div id="left-navigation-panel" class="left-nav">
-						Herere 
+						
 					</div>		
 	    		</div>
 	    		<div class="col-md-8">
 	    			{% block content %}
 					{% endblock %}			
 	    		</div>
-	    	</div>
-			
+	    	</div>			
 		</div>		
-		<div class="container">
-					
-		</div>		
+		{% block js_scripts %}
+		{% endblock %}
 	</body>
 </html>

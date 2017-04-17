@@ -63,3 +63,10 @@ class FootballPlayer(models.Model):
 
 	def __str__(self):
 		return self.name+' '+self.club
+
+	@property
+	def json_equivalent(self):
+		dictionary = {}
+		for field in self._meta.fields:
+			dictionary[field.name] = self.__getattribute__(field.name)
+		return dictionary

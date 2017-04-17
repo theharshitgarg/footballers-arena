@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator
 from .models import FootballPlayer
-
+from django.forms import ModelForm
 
 class PlayersListView(generic.ListView):
 
@@ -16,3 +16,11 @@ class PlayersListView(generic.ListView):
     def get_queryset(self):
         """Return all the objects."""
         return FootballPlayer.objects.all()
+
+
+def player_detail_view(request, pk):
+    player = get_object_or_404(FootballPlayer, pk=pk)
+    serialized_player = player.json_equivalent
+    
+    return render(request, 'footballers/footballer_details.html', 
+    	{'footballer': player, 'serialized_player': serialized_player})

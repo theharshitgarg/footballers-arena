@@ -8,8 +8,8 @@
 		{% for player in footballers_list %}
 
 			<div class="col-md-12">
-				<div class="panel panel-info">
-				  <div class="panel-heading">{{ player.name }}</div>
+				<div class="panel panel-info" id="{{ player.id }}">
+				  <div class="panel-heading"><a href="{% url 'player-detail' player.id %}">{{ player.name }}</a></div>
 				  <div class="panel-body">
 				  	<div class="row">
 				  		<div class="col-xs-4 col-sm-4">
@@ -64,4 +64,17 @@
 		  </ul>
 		</nav>		
 	</div>
+{% endblock %}
+
+{% block js_scripts %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.panel').click(function(){
+				var player_id = $(this).attr('id');
+				var url = "/players/"+player_id;
+				window.open(url);
+			});
+		});
+	</script>
+
 {% endblock %}			
