@@ -1,1 +1,1 @@
-web: gunicorn footballersarena.wsgi
+web: gunicorn footballersarena.wsgi --log-file -
