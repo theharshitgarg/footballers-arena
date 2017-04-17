@@ -25,7 +25,7 @@ SECRET_KEY = 'f_r$@9l5w&ls3+^u$okhsr$r1_*_a4$%sd4&kjef2a#)+arfdy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['footballers-arena.herokuapp.com']
+ALLOWED_HOSTS = ['footballers-arena.herokuapp.com', 'localhost']
 
 
 # Application definition
