@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.core.paginator import Paginator
 from .models import FootballPlayer
 from django.forms import ModelForm
+from django.contrib.auth.decorators import login_required
 
 class PlayersListView(generic.ListView):
 
@@ -15,6 +16,7 @@ class PlayersListView(generic.ListView):
 
     def get_queryset(self):
         """Return all the objects."""
+
         return FootballPlayer.objects.all()
 
 
